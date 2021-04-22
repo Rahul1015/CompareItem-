@@ -1,0 +1,176 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AmazonSequence" this:AmazonSequence.in_ProductName="bluetooth speakers with mic" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ProductName" Type="InArgument(x:String)" />
+    <x:Property Name="out_price" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Rating" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Name" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Image" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>498.666666666667,1592.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AmazonSequence_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="25">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AmazonSequence" sap:VirtualizedContainerService.HintSize="508.666666666667,1488" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="466.666666666667,135.333333333333" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.666666666667,1220.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.amazon.in/">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1118" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_Name" />
+              <Variable x:TypeArguments="x:String" Name="str_Price" />
+              <Variable x:TypeArguments="x:String" Name="str_Rating" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  twotabsearchtext...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_ProductName]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b712e53-6a37-4728-998a-7568116daab3" InformativeScreenshot="92b39c912e68c722b551a8b0d997eb38" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  nav-search-submi...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="34f152bd-1e7c-4eb0-ab1f-44c2e41cb7f1" InformativeScreenshot="cefdac04b36d92875c90457b62d8c59b" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6cf80d48-8a8f-4073-a16a-f4e37b7aae76" InformativeScreenshot="27a94f9d9ba239ae90415f430f0881bb" Selector="&lt;webctrl parentid='search' tag='SPAN' class='a-size-medium a-color-base a-text-normal' isleaf='1' parentclass='a-link-normal a-text-normal' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[out_Name]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d5124aa2-34a2-4945-be1e-db7e35371af1" InformativeScreenshot="e4211c106385a839080f7171e85defd7" Selector="&lt;webctrl parentid='search' tag='SPAN' isleaf='1' parentclass='a-price' idx='3' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[out_price]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'I'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e56c2c8f-eba1-41f8-830b-195d84119c1e" InformativeScreenshot="ce6e4614adfe50e1b56361a1b62ee62b" Selector="&lt;webctrl parentid='search' tag='I' isleaf='0' idx='1' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[out_Rating]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[str_Name]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[str_Price]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[str_Rating]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+  </Sequence>
+</Activity>
